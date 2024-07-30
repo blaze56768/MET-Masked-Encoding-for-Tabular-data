@@ -1,0 +1,48 @@
+{
+    "os": "macOS-14.5-arm64-arm-64bit",
+    "python": "3.8.19",
+    "heartbeatAt": "2024-07-25T07:44:39.404847",
+    "startedAt": "2024-07-25T07:44:37.242412",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "src/train_module.py",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/blaze56768/Masked_Encoding_Transformer.git",
+        "commit": "5386ee004b2e29a74b0884701133a3d914593abe"
+    },
+    "email": "chaturvedivikas059@gmail.com",
+    "root": "/Users/A117870943/Documents/DT/Innovation/Masked_Encoding_Transformer",
+    "host": "T000ec830e",
+    "username": "A117870943",
+    "executable": "/Users/A117870943/anaconda3/envs/telco_ai/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 10,
+    "cpu_freq": {
+        "current": 3228,
+        "min": 600,
+        "max": 3228
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3228,
+            "min": 600,
+            "max": 3228
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 460.4317207336426,
+            "used": 9.562141418457031
+        }
+    },
+    "gpuapple": {
+        "type": "Apple M1 Pro",
+        "vendor": "sppci_vendor_Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}

@@ -1,0 +1,8 @@
+# @package _global_
+model_params: 
+  masking_pct: 0.2
+
+datamodule_params:
+  filename: "mask_20"
+
+pretrain_checkpoint: ..\outputs\sample\scaled\pretrain\
