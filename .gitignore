@@ -164,7 +164,7 @@ cython_debug/
 
 # Ignore all contents of the outputs folder except the pretrain folder
 outputs/*
-!outputs/pretrain/
+!outputs/pretrainlocal/
 
 # Ignore all contents of the wandb folder but keep the folder itself
 wandb/*
