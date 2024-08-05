@@ -170,4 +170,4 @@ outputs/*
 wandb/*
 !wandb/.gitkeep
 
-**/.DS_Store
+.DS_Store
