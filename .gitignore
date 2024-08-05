@@ -169,3 +169,5 @@ outputs/*
 # Ignore all contents of the wandb folder but keep the folder itself
 wandb/*
 !wandb/.gitkeep
+
+**/.DS_Store
