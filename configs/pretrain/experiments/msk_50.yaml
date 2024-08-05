@@ -3,6 +3,7 @@ model_params:
   masking_pct: 0.5
 
 datamodule_params:
-  filename: "mask_50"
+  # filename: "mask_50"
+  filename: "{epoch:02d}"
 
-pretrain_checkpoint: ..\outputs\sample\scaled\pretrain\
+pretrain_checkpoint: /Users/A117870943/Documents/DT/Innovation/Masked_Encoding_Transformer/outputs/pretrainlocal/mask_50_2/

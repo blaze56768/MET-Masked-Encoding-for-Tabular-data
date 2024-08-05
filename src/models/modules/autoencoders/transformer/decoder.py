@@ -25,6 +25,7 @@ class TransformerDecoder(nn.Module):
         Returns:
             torch.Tensor: Decoded output.
         """
+        
         for block in self.decoder_blocks:
             x = block(x)
 

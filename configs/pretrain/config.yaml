@@ -1,12 +1,12 @@
 model_params: 
   num_heads: 1
-  pos_embedding_dim: 127
+  pos_embedding_dim: 5
   dropout: 0.1
   num_features: 21
   feedforward_dim: 128
   d_inter: 256
   output_features: 1
-  masking_pct: 0.3
+  masking_pct: 
   num_encoder_blocks: 5
   num_decoder_blocks: 3
   downstream_n_features: 21
@@ -39,5 +39,5 @@ datamodule_params:
   name_labels: ['label']
   filename: "mask_0"
 
-pretrain_checkpoint:  /Users/A117870943/Documents/DT/Innovation/Masked_Encoding_Transformer/outputs/pretrainlocal/exp_4.ckpt
-downstream_checkpoint:  /Users/A117870943/Documents/DT/Innovation/Masked_Encoding_Transformer/outputs/sftlocal/denoised/exp_4/noise_30.ckpt
+pretrain_checkpoint:  /Users/A117870943/Documents/DT/Innovation/Masked_Encoding_Transformer/outputs/pretrainlocal/mask_0/
+downstream_checkpoint:  /Users/A117870943/Documents/DT/Innovation/Masked_Encoding_Transformeroutputs/outputs/downstream/mask_0/

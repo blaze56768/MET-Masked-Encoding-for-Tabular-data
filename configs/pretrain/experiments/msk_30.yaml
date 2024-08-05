@@ -5,4 +5,4 @@ model_params:
 datamodule_params:
   filename: "mask_30"
 
-pretrain_checkpoint: ..\outputs\sample\scaled\pretrain\
+pretrain_checkpoint: /Users/A117870943/Documents/DT/Innovation/Masked_Encoding_Transformer/outputs/pretrainlocal/mask_30/
