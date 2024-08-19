@@ -79,6 +79,7 @@ Using the embeddings extracted by the Upstream model, we fine-tuned another ML m
                     ├── positional_embedding.py
                     ├──transformer_block.py
     └── utils/
+            ├── utils_funcs.py
 ```
 
 ## 📌&nbsp;&nbsp;How to run our code?
