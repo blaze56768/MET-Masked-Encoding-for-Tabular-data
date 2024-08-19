@@ -36,7 +36,7 @@ Hydra enables us to override the configurations without modifying the code. It r
 Using the embeddings extracted by the Upstream model, we fine-tuned another ML model to get the final predicted classification labels. For simplicity and efficient comparision, we picked the the Logistic regression as our base model and tracked the effect of Pre-Training.
 
 
-### Code Structure
+## 📌&nbsp;&nbsp;Code Structure
 
 ```
 .
@@ -81,7 +81,7 @@ Using the embeddings extracted by the Upstream model, we fine-tuned another ML m
     └── utils/
 ```
 
-### How to run the code?
+## 📌&nbsp;&nbsp;How to run our code?
 You can do pre-training experiments by configuring the hyper-parameters. Under folder configs/pretrain/, you can find a general configs.yaml, which contains the default setting of masking rates and also other hyper-parameters. If you want want to modify something, you can change them in .yaml files under the experments folder, as you can find in the example files under /experiments folder. Thanks to the python framework Hydra, you don't need to re-write every settings in the .yaml file. You can simply write the parts you want to fine-tune.
 
 Then, you train the upstream.
@@ -98,11 +98,11 @@ To run the downstream model:
 python /src/train_classifier.py +config_file=path/to/your/config
 ```
 
-### Blog Link
+## 📌&nbsp;&nbsp;Blog Link
 
-I wrote this  [Tutorial](Coming Soon!) as a guide into MET and our repository.
+I wrote this  [Tutorial](Coming Soon!) as a guide into MET and our repository. (2nd Blog Post will be also followed :))
 
-### Contributers
+## 📌&nbsp;&nbsp;Contributors
 Hyemin Kim: hyemin.kim@telekom.de
 Felipe Villa-Arenas: luis-felipe.villa-arenas@telekom.de
 Vikas Kumar: vikas.kumar@t-systems.com
