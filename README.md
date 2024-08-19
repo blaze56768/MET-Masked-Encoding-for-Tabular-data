@@ -13,6 +13,7 @@ Original paper: https://table-representation-learning.github.io/assets/papers/me
 ![MET](https://github.com/user-attachments/assets/503624cd-71af-41b5-941c-249f19ef1eed)
 
 
+
 Original repo: https://github.com/google-research/met
 
 ### Why Self-Supervised Learning? (Upstream)
@@ -86,12 +87,16 @@ You can do pre-training experiments by configuring the hyper-parameters. Under f
 Then, you train the upstream.
 
 To run the upstream model:
+```
 python /src/train_module.py +config_file=path/to/your/config  
+```
 
 Afterwards, you train the downstream using the extracted embeddings. 
 
 To run the downstream model:
+```
 python /src/train_classifier.py +config_file=path/to/your/config
+```
 
 ### Blog Link
 
