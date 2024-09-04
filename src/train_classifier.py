@@ -32,12 +32,9 @@ def train(cfg : DictConfig)->None:
     model = lr_classifier.LogisticRegressionClassifier(cfg=cfg)
     lr_monitor = LearningRateMonitor(logging_interval='step')
     checkpoint_callback = ModelCheckpoint(dirpath=cfg.downstream_checkpoint, save_top_k=1, monitor="train/ap", mode="max", filename=cfg.train_params.filename)
-    #model=logistic_regression.DownstreamClassifier.load_from_checkpoint(cfg.downstream_checkpoint)
-    #trainer = L.Trainer(max_epochs=cfg.downstream_n_epochs,logger = wandb_logger,check_val_every_n_epoch=cfg.val_epochs,callbacks=[EarlyStopping(monitor="val/accuracy", mode="max",patience=cfg.early_stop_patience),lr_monitor])
     trainer = L.Trainer(max_epochs=cfg.train_params.downstream_n_epochs, logger = wandb_logger, check_val_every_n_epoch=cfg.train_params.val_epochs, callbacks=[checkpoint_callback,lr_monitor])
     wandb_logger.watch(model,log="all")
     trainer.fit(model=model,train_dataloaders=train_loader,val_dataloaders=val_dataloader)
-    #trainer.save_checkpoint(cfg.downstream_checkpoint)
     checkpoint_callback.best_model_path
     
     return cfg
