@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torchmetrics
 import torchmetrics.classification
-from src.models import transformer_autoencoder_old
+from src.models import transformer_autoencoder
 
 class LogisticRegressionClassifier(L.LightningModule):
     """Downstream Classifier for leveraging a pretrained model.
