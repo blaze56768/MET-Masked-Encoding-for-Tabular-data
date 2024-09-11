@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torchmetrics
 import torchmetrics.classification
-from src.models import transformer_autoencoder
+from models import transformer_autoencoder
 
 class LogisticRegressionClassifier(L.LightningModule):
     """Downstream Classifier for leveraging a pretrained model.
@@ -23,12 +23,12 @@ class LogisticRegressionClassifier(L.LightningModule):
 
         if self.cfg.train_params.downstream_pretrain:
             # Initialize the pretrained LightningModule
-            self.pretrained = transformer_autoencoder_old.MaskedTransformerModel.load_from_checkpoint(self.cfg.pretrain_checkpoint)
+            self.pretrained = transformer_autoencoder.TransformerAutoEncoder.load_from_checkpoint(self.cfg.pretrain_checkpoint)
             # Freeze pretrained encoder
             self.pretrained.freeze()
 
         # Initialize layers
-        self.projection_layer = nn.Linear(self.cfg.model_params.num_features, self.cfg.model_params.output_features)
+        self.projection_layer = nn.Linear(self.cfg.model_params.num_heads+self.cfg.model_params.pos_embedding_dim, self.cfg.model_params.output_features)
 
         # Loss criterion
         self.criterion = nn.BCELoss()
@@ -44,9 +44,12 @@ class LogisticRegressionClassifier(L.LightningModule):
         """
         if self.cfg.train_params.downstream_pretrain:
             embeddings = self.pretrained(x, 0)
+            print("Embeddings shape:", embeddings.shape)
         else:
             embeddings = x
         
+        embeddings = torch.mean(embeddings, dim=1)  # Shape: [batch_size, embedding_dim]
+        #predictions = self.projection_layer(pooled_embeddings)
         predictions = self.projection_layer(embeddings)
         predictions = torch.sigmoid(predictions)
         predictions = torch.squeeze(predictions, -1)
@@ -63,8 +66,9 @@ class LogisticRegressionClassifier(L.LightningModule):
         Returns:
             dict: Dictionary containing the loss.
         """
-        inputs = batch[:, :-2]
-        labels = batch[:, -1]
+        # inputs = batch[:, :-2]
+        # labels = batch[:, -1]
+        inputs, labels = batch
         predictions = self(inputs)
         loss = self.criterion(predictions, labels)
         
@@ -97,8 +101,9 @@ class LogisticRegressionClassifier(L.LightningModule):
         Returns:
             dict: Dictionary containing the loss.
         """
-        inputs = batch[:, :-1]
-        labels = batch[:, -1]
+        # inputs = batch[:, :-1]
+        # labels = batch[:, -1]
+        inputs, labels = batch
         predictions = self(inputs)
         loss = self.criterion(predictions, labels)
         
@@ -131,8 +136,9 @@ class LogisticRegressionClassifier(L.LightningModule):
         Returns:
             dict: Dictionary containing the loss.
         """
-        inputs = batch[:, :-1]
-        labels = batch[:, -1]
+        # inputs = batch[:, :-1]
+        # labels = batch[:, -1]
+        inputs, labels = batch
         predictions = self(inputs)
         loss = self.criterion(predictions, labels)
         
