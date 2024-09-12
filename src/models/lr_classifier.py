@@ -48,11 +48,11 @@ class LogisticRegressionClassifier(L.LightningModule):
         else:
             embeddings = x
         
-        embeddings = torch.mean(embeddings, dim=1)  # Shape: [batch_size, embedding_dim]
-        #predictions = self.projection_layer(pooled_embeddings)
-        predictions = self.projection_layer(embeddings)
+        pooled_embeddings = torch.mean(embeddings, dim=1)  # Shape: [batch_size, embedding_dim]
+        predictions = self.projection_layer(pooled_embeddings)
+        #predictions = self.projection_layer(embeddings)
         predictions = torch.sigmoid(predictions)
-        predictions = torch.squeeze(predictions, -1)
+        #predictions = torch.squeeze(predictions, -1)
         
         return predictions
 
