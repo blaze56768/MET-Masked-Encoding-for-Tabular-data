@@ -101,7 +101,8 @@ python /src/train_classifier.py +config_file=path/to/your/config
 
 ## 📌&nbsp;&nbsp;Blog Link
 
-I wrote this  [Tutorial](Coming Soon!) as a guide into MET and our repository. (2nd Blog Post will be also followed :))
+I wrote this  [Tutorial][https://medium.com/@khyemin/self-supervised-learning-for-tabular-data-3148cd32fcf8] as a guide into MET and our repository. 
+2nd Blog Post is foccusing on the practical implementation of self supervised learning algorithm [https://medium.com/@chaturvedivikas059/mastering-noisy-data-a-deep-dive-into-self-supervised-learning-with-transformers-for-tabular-data-fad582590d4c]
 
 ## 📌&nbsp;&nbsp;Contributors
 Hyemin Kim: hyemin.kim@telekom.de
